@@ -17,7 +17,7 @@ from llm import set_global_llm
 import feedparser
 
 def get_zotero_corpus(id:str,key:str) -> list[dict]:
-    zot = zotero.Zotero(id, 'user', key)
+    zot = zotero.Zotero(id, 'group', key)
     collections = zot.everything(zot.collections())
     collections = {c['key']:c for c in collections}
     corpus = zot.everything(zot.items(itemType='conferencePaper || journalArticle || preprint'))
